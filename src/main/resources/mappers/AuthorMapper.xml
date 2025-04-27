@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whut.experiment2.mapper.AuthorMapper">
+    <select id="findAllAuthors" resultType="com.whut.experiment2.model.Author">
+        SELECT id, name, province, city, address, zip
+        FROM authors
+    </select>
+</mapper>
