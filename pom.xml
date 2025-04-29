@@ -67,6 +67,9 @@
         </dependency>
 
         <!-- Lombok -->
+        <!-- idea中必须安装插件配合使用才行, 这块儿太坑了-->
+        <!-- 同时需要 mvn clean compile 下才行, 重新编译解决很多问题 -->
+        <!-- 赞美伟大的deepseek-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
