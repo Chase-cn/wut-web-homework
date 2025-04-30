@@ -37,13 +37,13 @@ public class UserServiceImpl implements UserService {
     public boolean login(String name, String password) {
         User user = userMapper.findByName(name);
         if (user == null) {
-            throw new UserNotFoundException();
+            throw new UserNotFoundException();//用户不存在
         }
 
         // 验证密码
         String encryptedPassword = DigestUtils.md5DigestAsHex(password.getBytes());
         if (!user.getPassword().equals(encryptedPassword)) {
-            throw new ValidationException("密码错误");
+            throw new ValidationException("密码错误");//密码错误
         }
 
         return true;
@@ -57,14 +57,31 @@ public class UserServiceImpl implements UserService {
 
         Integer userId=getUserByName(name).getId();
         int affectedRows = userMapper.updatePassword(userId, encryptedOldPassword, encryptedNewPassword);
-        return affectedRows > 0;
+        if(affectedRows > 0){
+            return true;
+        }
+        else{
+            throw new ValidationException("账户名与旧密码不匹配! ");
+        }
     }
 
     @Override
     public User getUserById(Integer id) {
-        return userMapper.findById(id);
+        User user=userMapper.findById(id);
+        if(user==null){
+            throw new UserNotFoundException();
+        }else {
+            return user;
+        }
     }
 
     @Override
-    public User getUserByName(String name){return userMapper.findByName(name);}
+    public User getUserByName(String name){
+        User user=userMapper.findByName(name);
+        if(user==null){
+            throw new UserNotFoundException();
+        }else{
+            return user;
+        }
+    }
 }
