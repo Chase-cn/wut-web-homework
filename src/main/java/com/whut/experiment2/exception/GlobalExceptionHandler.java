@@ -36,6 +36,12 @@ public class GlobalExceptionHandler {
         return new ErrorResponse(ex.getErrorCode(), ex.getMessage(), System.currentTimeMillis());
     }
 
+    @ExceptionHandler(ContactNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND) // 404
+    public ErrorResponse handleResourceNotFound(ContactNotFoundException ex) {
+        return new ErrorResponse(ex.getErrorCode(), ex.getMessage(), System.currentTimeMillis());
+    }
+
     // 处理参数验证异常（如 @Valid 失败）
     @ExceptionHandler(ValidationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST) // 400

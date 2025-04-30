@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.whut.experiment2.mapper.ContactMapper">
+
+    <!-- 添加联系人 -->
+    <insert id="insertContact" parameterType="com.whut.experiment2.model.Contact"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO contacts(name, province, city, address, zip,date)
+        VALUES(#{name}, #{province}, #{city}, #{address}, #{zip}, #{date})
+    </insert>
+
+    <!-- 修改联系人 -->
+    <update id="updateContact" parameterType="com.whut.experiment2.model.Contact">
+        UPDATE contacts
+        SET
+            name = #{name},
+            province = #{province},
+            city = #{city},
+            address = #{address},
+            zip = #{zip},
+            date = #{date}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除联系人 -->
+    <delete id="deleteContact" parameterType="long">
+        DELETE FROM contacts WHERE id = #{id}
+    </delete>
+
+    <!-- 查询所有联系人 -->
+    <select id="selectAllContacts" resultType="com.whut.experiment2.model.Contact">
+        SELECT * FROM contacts
+    </select>
+
+    <!-- 根据ID查询联系人 -->
+    <select id="selectContactById" parameterType="long"
+            resultType="com.whut.experiment2.model.Contact">
+        SELECT * FROM contacts WHERE id = #{id}
+    </select>
+
+</mapper>

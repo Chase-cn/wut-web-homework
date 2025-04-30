@@ -16,7 +16,7 @@ public abstract class BusinessException extends RuntimeException{
 
     /**
      *
-     * @param errorCode 错误码(更好),而不状态码(多余)
+     * @param errorCode 错误码(更好),而不状态码(多余)<br/>可惜只能是状态码(懒得改了)
      * @param message 错误信息
      */
     public BusinessException(int errorCode, String message) {
