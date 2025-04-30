@@ -13,7 +13,8 @@ public class UserController {
     private UserService userService;
 
     /**
-     *用户注册
+     * 用户注册
+     *
      * @param user 得用json的requestbody,一般的表单格式不再适用
      *             并且http头中需包含Content-type: application/json
      * @return json格式的user数据
@@ -25,8 +26,12 @@ public class UserController {
 
     // 用户登录
     @PostMapping("/login")
-    public boolean login(@RequestParam String name, @RequestParam String password) {
-        return userService.login(name, password);
+    public User login(@RequestParam String name, @RequestParam String password) {
+        if (userService.login(name, password)) {
+            return userService.getUserByName(name);
+        }
+        else
+            return null;
     }
 
     // 修改密码

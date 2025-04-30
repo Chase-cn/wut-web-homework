@@ -50,6 +50,7 @@
         </dependency>
 
         <!-- Spring Boot DevTools -->
+        <!-- 这个热更新其实是手动快速重启 Build->Build Project-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
