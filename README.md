@@ -5,6 +5,42 @@
 
 项目已开源，如果对您有帮助欢迎 ⭐Star 支持！
 
+## 🧱 项目结构
+
+src/
+
+├── main/
+
+│  ├── java/
+
+│  │  ├── com.example.webapp/
+
+│  │  │  ├── config/     # Spring Boot 配置类
+
+│  │  │  ├── exception/     # 一些自定义的异常+全局异常处理
+
+│  │  │  ├── controller/   # 控制器层
+
+│  │  │  ├── model/      # 数据模型（实体类）
+
+│  │  │  ├── service/     # 业务逻辑层
+
+│  │  │  ├── mapper/     # MyBatis Mapper 接口
+
+│  │  │  └── WebappApplication.java # 启动类
+
+│  └── resources/
+
+│    ├── mapper/       # MyBatis XML 映射文件
+
+│    ├── static/       # 静态资源
+
+│    ├── application.properties # 配置文件
+
+│    └── application.yml   # 可选 YAML 配置
+
+pom.xml             # Maven 依赖管理
+
 ## 🌟 项目亮点
 1. **双系统融合**：同时实现图床服务+联系人管理系统
 2. **完整异常处理**：规范化后端异常返回结构
