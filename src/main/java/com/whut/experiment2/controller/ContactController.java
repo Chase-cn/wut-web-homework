@@ -39,7 +39,7 @@ public class ContactController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteContact(@PathVariable Long id) {
         contactService.deleteContact(id);
-        return ResponseEntity.ok("联系人删除成功");
+        return ResponseEntity.ok(String.format("联系人 %d 删除成功!",id));
     }
 
     // 获取所有联系人
